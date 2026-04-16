@@ -55,12 +55,10 @@ function App() {
       <UserContextProvider>
         <PostContextProvider>
         <Toaster />
-          <CounterContextProvider>
             <QueryClientProvider client={query}>
           <ReactQueryDevtools/>
               <RouterProvider router={x} />
             </QueryClientProvider>
-          </CounterContextProvider>
         </PostContextProvider>
       </UserContextProvider>
     </>
