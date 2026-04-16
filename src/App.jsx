@@ -1,6 +1,6 @@
 import "./App.css";
 import Home from "./components/home/Home";
-import About from "./components/about/About";
+import About from "./components/About/About";
 import LayOut from "./components/layout/LayOut";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import NotFound from "./components/notFound/NotFound";
