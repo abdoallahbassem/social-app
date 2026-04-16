@@ -1,8 +1,6 @@
 import React from 'react'
-import style from "./Comment.module.css"
 import axios from 'axios'
 import { useQuery } from '@tanstack/react-query';
-import PopUpMenu from '../PopUpMenu/PopUpMenu';
 import CommentPopUpMenu from '../CommentPopUpMenu/CommentPopUpMenu';
 import CommentLikeModal from '../CommentLikeModal/CommentLikeModal';
 import CommentReplyModal from '../CommentReplyModal/CommentReplyModal';

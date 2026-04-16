@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import style from "./UserPosts.module.css";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import CommentModal from "../CommentModal/CommentModal";
 import { Link } from "react-router-dom";
-import CreatePost from "../CreatePost/CreatePost";
 import PopUpMenu from "../PopUpMenu/PopUpMenu";
 import CommentPopUpMenu from "../CommentPopUpMenu/CommentPopUpMenu";
 import LikeModal from "../LikeModal/LikeModal";

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import style from "./Replies.module.css"
 import axios from 'axios'
 import { useQuery } from '@tanstack/react-query';
 

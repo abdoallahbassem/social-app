@@ -1,11 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import { CounterContext } from "../../context/counterContext";
-import { PostContext } from "../../context/PostContext";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import CommentModal from "../CommentModal/CommentModal";
-import CreatePost from "../CreatePost/CreatePost";
 import PopUpMenu from "../PopUpMenu/PopUpMenu";
 import LikeModal from "../LikeModal/LikeModal";
 import ShareModal from "../ShareModal/ShareModal";

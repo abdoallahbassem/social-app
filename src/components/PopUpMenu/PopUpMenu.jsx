@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import style from "./PopUpMenu.module.css";
 import axios from "axios";
 import UpdatePostModal from "../UpdatePostModal/UpdatePostModal";
 import toast from "react-hot-toast";

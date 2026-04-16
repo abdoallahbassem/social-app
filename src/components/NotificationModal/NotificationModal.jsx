@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import style from "./NotificationModal.module.css";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import UpdatePostModal from "../UpdatePostModal/UpdatePostModal";
 import toast from "react-hot-toast";
 import { useQueryClient } from "@tanstack/react-query";
 

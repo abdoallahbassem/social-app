@@ -1,5 +1,4 @@
 import React from 'react'
-import style from "./LikesCounterContext.module.css"
 
 
 import React, { createContext, useState } from 'react'

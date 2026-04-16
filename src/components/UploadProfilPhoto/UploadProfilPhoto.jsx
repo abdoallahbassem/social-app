@@ -1,6 +1,4 @@
-import React, { useState } from 'react'
-import style from "./UploadProfilPhoto.module.css"
-import { useQuery } from '@tanstack/react-query';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import toast from 'react-hot-toast';

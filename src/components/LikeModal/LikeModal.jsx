@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import style from "./LikeModal.module.css";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useQueryClient } from "@tanstack/react-query";

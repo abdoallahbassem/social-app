@@ -1,11 +1,9 @@
 import React from "react";
-import style from "./Profile.module.css";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import UserPosts from "../UserPosts/UserPosts";
 import ChangePasswordModal from "../ChangePasswordModal/ChangePasswordModal";
 import UploadProfilPhoto from "../UploadProfilPhoto/UploadProfilPhoto";
-import CreatePost from "../CreatePost/CreatePost";
 
 export default function Profile() {
   function getUserData() {

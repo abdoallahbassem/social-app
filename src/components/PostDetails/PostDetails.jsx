@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import style from "./PostDetails.module.css";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
