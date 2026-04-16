@@ -7,7 +7,6 @@ import NotFound from "./components/notFound/NotFound";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import Profile from "./components/Profile/Profile";
-import CounterContextProvider from "./context/counterContext";
 import UserContextProvider from "./context/UserContext";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import PostContextProvider from "./context/PostContext";
