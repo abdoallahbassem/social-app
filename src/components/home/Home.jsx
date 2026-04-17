@@ -65,10 +65,10 @@ export default function Home() {
           </div>
         </>
       ) : (
-        <>
+        <div className="pb-22">
           {data.map((post) => (
             <div
-              className=" w-full p-3  md:w-[80%] lg:w-[60%] bg-gray-200 rounded-lg my-2 mx-auto "
+              className=" w-full overflow-x-hidden p-3  md:w-[80%] lg:w-[60%] bg-gray-200 rounded-lg my-2 mx-auto "
               key={post.id}
             >
               <div className="flex justify-between ps-2 pe-2 items-center bg-slate-900 rounded-md  w-full">
@@ -160,10 +160,7 @@ export default function Home() {
                         </span>{" "}
                       </div>
                       <span>{post.topComment.createdAt}</span>
-                      <CommentPopUpMenu
-                        postId={post?.id}
-                        commentId={post?.topComment._id}
-                      />
+                      
                     </div>
                     <span className="text-center">
                       <Link to={`/postDetails/${post.id}`}>
@@ -177,7 +174,7 @@ export default function Home() {
               )}
             </div>
           ))}
-        </>
+        </div>
       )}
 
         

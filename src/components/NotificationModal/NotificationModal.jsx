@@ -37,10 +37,11 @@ export default function NotificationModal() {
       })
       .then((res) => {
         const newCount = res?.data?.data?.unreadCount;
-        setunReadCount(newCount-oldCount);
+        setunReadCount(newCount);
       })
       .catch((err) => console.log(err));
   }
+  const diff = unReadCount - oldCount;
 
   useEffect(() => {
     getNotificationCount();
@@ -65,9 +66,9 @@ export default function NotificationModal() {
         type="button"
       >
         <i className="fa-solid text-white text-2xl fa-bell relative">
-          {unReadCount > 0 && unReadCount !== oldCount && (
+          {diff > 0 && unReadCount !== oldCount && (
             <span className="bg-red-500 p-1 text-[10px] rounded-full absolute top-3 text-center">
-              {unReadCount}
+              {diff}
             </span>
           )}
         </i>
