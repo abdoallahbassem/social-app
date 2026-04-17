@@ -72,7 +72,7 @@ export default function NavBar() {
                 <li>
                   <Link
                     to="/profile"
-                    className="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium rounded"
+                    className="inline-flex items-center w-full p-2 hover:text-black hover:bg-neutral-tertiary-medium rounded"
                   >
                     Profile
                   </Link>
@@ -82,7 +82,7 @@ export default function NavBar() {
                   <Link
                     to="/login"
                     onClick={changeUi}
-                    className="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium rounded"
+                    className="inline-flex items-center w-full p-2 hover:text-black hover:bg-neutral-tertiary-medium rounded"
                   >
                     Sign Out
                   </Link>
