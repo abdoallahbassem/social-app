@@ -1,36 +1,14 @@
 import React, { useState } from "react";
-import axios from "axios";
-import toast from "react-hot-toast";
-import { useQueryClient } from "@tanstack/react-query";
+import UpdateCommentModal from "../UpdateCommentModal/UpdateCommentModal";
+import DeleteCommentModal from "../DeleteCommentModal/DeleteCommentModal";
 
 export default function CommentPopUpMenu({ postId, commentId }) {
   const [isShow, setisShow] = useState(false);
-  let query = useQueryClient();
   function changeToggle() {
     setisShow(!isShow);
   }
 
-  function deleteComment() {
-    axios
-      .delete(
-        `https://route-posts.routemisr.com/posts/${postId}/comments/${commentId}`,
-        {
-          headers: {
-            token: localStorage.getItem("token"),
-          },
-        }
-      )
-      .then((res) => {
-        console.log(res);
-        toast.success("comment deleted successfully");
-        query.invalidateQueries({ queryKey: "getComment" });
-        setisShow(false);
 
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
 
   return (
     <>
@@ -54,7 +32,7 @@ export default function CommentPopUpMenu({ postId, commentId }) {
             <div class="relative p-4 w-full max-w-md max-h-full">
               <div class="relative bg-neutral-primary-soft border border-default rounded-base shadow-sm p-4 md:p-6">
                 <div class="flex items-center justify-between border-b border-default pb-4 md:pb-5">
-                  <h3 class="text-lg font-medium text-heading">post options</h3>
+                  <h3 class="text-lg font-medium text-heading">comment options</h3>
                   <button
                     onClick={changeToggle}
                     type="button"
@@ -85,11 +63,19 @@ export default function CommentPopUpMenu({ postId, commentId }) {
                   <ul class="my-4 space-y-3">
                     <li>
                       <span
-                        onClick={() => deleteComment(postId, commentId)}
                         class="flex items-center cursor-pointer p-4 text-base font-semibold text-heading rounded-base border border-default-medium hover:border-brand-subtle bg-neutral-secondary-medium hover:bg-brand-softer hover:text-fg-brand"
                       >
                         <span class="flex-1 ms-2 whitespace-nowrap border-s border-default-medium ps-2">
-                          delete comment
+                          <DeleteCommentModal id={commentId} postId={postId}/>
+                        </span>
+                      </span>
+                    </li>
+                    <li>
+                      <span
+                        class="flex items-center cursor-pointer p-4 text-base font-semibold text-heading rounded-base border border-default-medium hover:border-brand-subtle bg-neutral-secondary-medium hover:bg-brand-softer hover:text-fg-brand"
+                      >
+                        <span class="flex-1 ms-2 whitespace-nowrap border-s border-default-medium ps-2">
+                        <UpdateCommentModal id={commentId} postId={postId} />
                         </span>
                       </span>
                     </li>

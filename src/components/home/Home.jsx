@@ -7,6 +7,7 @@ import PopUpMenu from "../PopUpMenu/PopUpMenu";
 import LikeModal from "../LikeModal/LikeModal";
 import ShareModal from "../ShareModal/ShareModal";
 import CommentPopUpMenu from "../CommentPopUpMenu/CommentPopUpMenu";
+import Footer from "../footer/Footer";
 
 export default function Home() {
   // let {getAllPosts} = useContext(PostContext);
@@ -20,7 +21,6 @@ export default function Home() {
         token: localStorage.getItem("token"),
       },
     });
-    
   }
 
   let { data, isLoading, isError, error } = useQuery({
@@ -46,9 +46,9 @@ export default function Home() {
       setcommentCount(comment);
       setlikeCount(like);
     }
-  },[data])
+  }, [data]);
 
-console.log(likeCount);
+  console.log(likeCount);
 
   if (isError) {
     return (
@@ -94,8 +94,7 @@ console.log(likeCount);
                 <div className="flex flex-column align-items-center justify-content-center">
                   <img src={post.image} className="mx-auto w-full" alt="" />
                 </div>
-                <div>
-                </div>
+                <div></div>
               </Link>
               {post?.sharedPost !== null ? (
                 <div className="w-[90%] mx-auto p-3 bg-slate-300 rounded-md">
@@ -105,7 +104,7 @@ console.log(likeCount);
                         src={post.sharedPost.user.photo}
                         className="w-[30px] h-[30px] rounded-full "
                         alt=""
-                        />
+                      />
                       <span className="font-bold text-[12px] ms-2 text-white">
                         {post.sharedPost.user.name}
                       </span>
@@ -126,7 +125,7 @@ console.log(likeCount);
                         src={post.sharedPost.image}
                         className="mx-auto w-full"
                         alt=""
-                        />
+                      />
                     </div>
                   </Link>
                 </div>
@@ -167,9 +166,9 @@ console.log(likeCount);
                       />
                     </div>
                     <span className="text-center">
-                    <Link to={`/postDetails/${post.id}`}>
-                      {post.topComment.content}
-                    </Link>
+                      <Link to={`/postDetails/${post.id}`}>
+                        {post.topComment.content}
+                      </Link>
                     </span>
                   </div>
                 </>
@@ -180,6 +179,9 @@ console.log(likeCount);
           ))}
         </>
       )}
+
+        
+      <Footer />
     </>
   );
 }

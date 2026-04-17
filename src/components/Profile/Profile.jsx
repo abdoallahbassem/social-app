@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import UserPosts from "../UserPosts/UserPosts";
 import ChangePasswordModal from "../ChangePasswordModal/ChangePasswordModal";
 import UploadProfilPhoto from "../UploadProfilPhoto/UploadProfilPhoto";
+import Footer from "../footer/Footer";
 
 export default function Profile() {
   function getUserData() {
@@ -41,6 +42,8 @@ export default function Profile() {
       </div>
 
       <UserPosts id={data?.id} />
+      <Footer/>
+
     </div>
   );
 }

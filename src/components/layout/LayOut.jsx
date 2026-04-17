@@ -8,10 +8,9 @@ export default function LayOut() {
   return (
     <>
     <NavBar/>
-    <div className="container mx-auto p-3 mt-16 ">
+    <div className=" mx-auto p-3 mt-16 ">
       <Outlet/>
     </div>
-    <Footer/>
     </>
     
   )
