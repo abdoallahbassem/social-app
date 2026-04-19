@@ -75,7 +75,7 @@ export default function CommentPopUpMenu({ postId, commentId }) {
                         class="flex items-center cursor-pointer p-4 text-base font-semibold text-heading rounded-base border border-default-medium hover:border-brand-subtle bg-neutral-secondary-medium hover:bg-brand-softer hover:text-fg-brand"
                       >
                         <span class="flex-1 ms-2 whitespace-nowrap border-s border-default-medium ps-2">
-                        <UpdateCommentModal id={commentId} postId={postId} />
+                        <UpdateCommentModal id={commentId} postId={postId} setisShow={setisShow} />
                         </span>
                       </span>
                     </li>

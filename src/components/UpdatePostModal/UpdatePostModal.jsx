@@ -4,10 +4,10 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useQueryClient } from "@tanstack/react-query";
 
-export default function UpdatePostModal({id}) {
-  const [isShow, setisShow] = useState(false);
+export default function UpdatePostModal({id , setisShow}) {
+  const [issShow, setissShow] = useState(false);
   function changeToggle() {
-    setisShow(!isShow);
+    setissShow(!issShow);
   }
 
   let query = useQueryClient()
@@ -41,6 +41,7 @@ export default function UpdatePostModal({id}) {
       console.log(res);
       toast.success("post updated successfully !")
       query.invalidateQueries({queryKey:['userPosts']})
+      setissShow(false);
       setisShow(false);
     } catch (error) {
       console.log(error.response.data);
@@ -53,13 +54,13 @@ export default function UpdatePostModal({id}) {
         onClick={changeToggle}
         data-modal-target="authentication-modal"
         data-modal-toggle="authentication-modal"
-        className="  block  box-border border border-transparent  focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base   focus:outline-none"
+        className="cursor-pointer"
         type="button"
       >
         Update Post
       </button>
 
-      {isShow && (
+      {issShow && (
         <div
           id="authentication-modal"
           tabIndex="-1"

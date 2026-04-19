@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useQueryClient } from "@tanstack/react-query";
 import Comment from './../Comment/Comment';
 
-export default function UpdateCommentModal({id,postId}) {
-  const [isShow, setisShow] = useState(false);
+export default function UpdateCommentModal({id,postId,setisShow}) {
+  const [issShow, setissShow] = useState(false);
   function changeToggle() {
-    setisShow(!isShow);
+    setissShow(!issShow);
   }
 
   let query = useQueryClient()
@@ -42,7 +42,9 @@ export default function UpdateCommentModal({id,postId}) {
       console.log(res);
       toast.success("comment updated successfully !")
       query.invalidateQueries({queryKey:'getComment'})
+      setissShow(false);
       setisShow(false);
+      
     } catch (error) {
       console.log(error.response.data);
     }
@@ -60,7 +62,7 @@ export default function UpdateCommentModal({id,postId}) {
         Update Comment
       </button>
 
-      {isShow && (
+      {issShow && (
         <div
           id="authentication-modal"
           tabIndex="-1"

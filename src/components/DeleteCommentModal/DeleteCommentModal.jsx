@@ -19,7 +19,6 @@ export default function DeleteCommentModal({id,postId}) {
         console.log(res);
         toast.success("comment deleted successfully");
         query.invalidateQueries({ queryKey: "getComment" });
-        setisShow(false);
       })
       .catch((err) => {
         console.log(err.response);

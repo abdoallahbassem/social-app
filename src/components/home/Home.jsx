@@ -32,23 +32,8 @@ export default function Home() {
     select: (data) => data?.data?.data.posts,
   });
 
-  useEffect(() => {
-    if (data) {
-      let shared = 0;
-      let comment = 0;
-      let like = 0;
-      data.forEach((post) => {
-        shared += post.sharesCount;
-        comment += post.commentsCount;
-        like += post.likesCount;
-      });
-      setsharedCount(shared);
-      setcommentCount(comment);
-      setlikeCount(like);
-    }
-  }, [data]);
 
-  console.log(likeCount);
+
 
   if (isError) {
     return (
@@ -133,15 +118,25 @@ export default function Home() {
                 ""
               )}
               <div className="flex items-center  my-3 pt-3 pb-1 rounded-md justify-around  ">
-                <div className="flex flex-col items-center">
-                  <LikeModal id={post.id} />
+                <div className="flex flex-col items-center justify-center">
+                  <LikeModal id={post.id} likesCount={likeCount} />
+
+                  <span className="font-bold">
+                    {post.likesCount > 0 ? post.likesCount : ""}
+                  </span>
                 </div>
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center justify-center">
                   <CommentModal id={post.id} />
+                  <span className="font-bold">
+                    {post.commentsCount > 0 ? post.commentsCount : ""}
+                  </span>
                 </div>
-                <div className="flex flex-col items-center">
-                  <span>
+                <div className="flex flex-col items-center justify-center">
+                  <span className="font-bold">
                     <ShareModal id={post.id} />
+                  </span>
+                  <span className="font-bold">
+                    {post.sharesCount > 0 ? post.sharesCount : ""}
                   </span>
                 </div>
               </div>

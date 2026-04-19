@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useQueryClient } from "@tanstack/react-query";
+import { data } from "react-router-dom";
 
 export default function LikeModal({ id }) {
   const [isLiked, setisLiked] = useState(false);
@@ -22,8 +23,8 @@ export default function LikeModal({ id }) {
         console.log(res);
         if (res.data.data.liked == true) {
           setisLiked(true);
-          query.invalidateQueries({queryKey:['userPosts']})
           toast.success("post liked successfully!");
+          query.invalidateQueries({queryKey:'getPosts'})
         } else {
           setisLiked(false);
           toast.success("post unliked successfully!");
@@ -35,7 +36,8 @@ export default function LikeModal({ id }) {
   }
   return (
     <>
-      {isLiked == true ? (
+    
+      {isLiked == true  ? (
         <i
           onClick={() => {
             likePost(id);

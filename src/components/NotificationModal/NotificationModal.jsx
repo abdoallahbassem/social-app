@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
+import { set } from "react-hook-form";
 
 export default function NotificationModal() {
   const [unReadCount, setunReadCount] = useState(0);
@@ -93,10 +94,11 @@ export default function NotificationModal() {
               <div>
                 {data?.map((notification) => (
                   <Link
+                  
                     key={notification?._id}
                     to={`/postDetails/${notification?.entity.id}`}
                   >
-                    <div className="flex justify-around items-center m-3 bg-slate-900 rounded-md w-full p-2">
+                  <div className="flex justify-around items-center m-3 bg-slate-900 rounded-md w-full p-2" onClick={changeToggle}>
                       <div className="flex items-center gap-2">
                         <img
                           src={notification?.actor?.photo}

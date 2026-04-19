@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import { useQueryClient } from "@tanstack/react-query";
 
 export default function CommentModal({ id }) {
-  let query = useQueryClient()
+  let query = useQueryClient();
   const [isShow, setisShow] = useState(false);
   function changeToggle() {
     setisShow(!isShow);
@@ -40,8 +40,10 @@ export default function CommentModal({ id }) {
       console.log(res);
       toast.success("comment added successfully !");
       setisShow(false);
-        query.invalidateQueries({ queryKey:"getComment" });
-      
+      query.invalidateQueries({ queryKey: "getPosts" });
+      query.invalidateQueries({queryKey:'getComment'});
+      query.invalidateQueries({queryKey:['userPosts']});
+
     } catch (error) {
       console.log(error.response.data);
     }

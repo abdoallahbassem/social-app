@@ -2,55 +2,16 @@ import React, { useState } from "react";
 import axios from "axios";
 import UpdatePostModal from "../UpdatePostModal/UpdatePostModal";
 import toast from "react-hot-toast";
-import { useQueryClient } from "@tanstack/react-query";
+import DeleltePostModal from "../DeleltePostModal/DeleltePostModal";
+import BookMarkPostModal from "../BookMarkPostModal/BookMarkPostModal";
 
 export default function PopUpMenu({ id }) {
   const [isShow, setisShow] = useState(false);
   function changeToggle() {
     setisShow(!isShow);
   }
-  let query = useQueryClient();
 
-  console.log(id);
-  function deletePost(id) {
-    axios
-      .delete(`https://route-posts.routemisr.com/posts/${id}`, {
-        headers: {
-          Token: localStorage.getItem("token"),
-        },
-      })
-      .then((res) => {
-        console.log(res);
-        toast.success(`post deleted successfully`);
-        query.invalidateQueries({ queryKey: ["userPosts"] });
-        setisShow(false)
-      })
-      .catch((err) => {
-        console.log(err.response);
-      });
-  }
 
-  function bookMarkPost(id) {
-    axios
-      .put(
-        `https://route-posts.routemisr.com/posts/${id}/bookmark`,
-        {},
-        {
-          headers: {
-            Token: localStorage.getItem("token"),
-          },
-        }
-      )
-      .then((res) => {
-        console.log(res);
-        toast.success("post booked successfully ");
-        setisShow(false)
-
-      })
-      .catch((err) => {
-        console.log(err.response);
-      });
-  }
 
   return (
     <>
@@ -106,30 +67,13 @@ export default function PopUpMenu({ id }) {
                     <li>
                       <span class="flex items-center p-4 text-base font-semibold text-heading rounded-base border border-default-medium hover:border-brand-subtle bg-neutral-secondary-medium hover:bg-brand-softer hover:text-fg-brand">
                         <span class="flex-1 ms-2 whitespace-nowrap border-s border-default-medium ps-2">
-                          <UpdatePostModal id={id} />
+                          <UpdatePostModal id={id} setisShow={setisShow} />
                         </span>
                       </span>
                     </li>
-                    <li>
-                      <span
-                        onClick={() => deletePost(id)}
-                        class="flex items-center p-4 text-base font-semibold text-heading rounded-base border border-default-medium hover:border-brand-subtle bg-neutral-secondary-medium hover:bg-brand-softer hover:text-fg-brand"
-                      >
-                        <span class="flex-1 cursor-pointer ms-2 whitespace-nowrap border-s border-default-medium ps-2">
-                          delete post
-                        </span>
-                      </span>
-                    </li>
-                    <li>
-                      <span
-                        onClick={() => bookMarkPost(id)}
-                        class="flex items-center p-4 text-base font-semibold text-heading rounded-base border border-default-medium hover:border-brand-subtle bg-neutral-secondary-medium hover:bg-brand-softer hover:text-fg-brand"
-                      >
-                        <span class="flex-1 ms-2 whitespace-nowrap border-s border-default-medium ps-2">
-                          book mark post
-                        </span>
-                      </span>
-                    </li>
+                    <DeleltePostModal id={id} />
+
+                    <BookMarkPostModal id={id} setisShow={setisShow} />
                   </ul>
                 </div>
               </div>
